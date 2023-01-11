@@ -30,3 +30,73 @@ Test data:
 § Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 */
 
+// This obj will keep score of the teams in an array.
+const scoreBoard = {
+    dolphins: [97, 112, 101],
+    koalas: [109, 95, 106]
+};
+
+//These are used for the announctmentFunc to know the names of the teams.
+let team1 = "Dolphins";
+let team2 = "Koalas";
+
+
+//This var will be used to have a min set score in which it can be reassign when needed.
+let minScore = 100
+
+//Avg score function will take an array and interate them to get the avg score.
+function avgScore (scoreInput) {
+    let cal = 0;
+    let i;
+    for (i = 0; i < scoreInput.length; i++) {
+        cal += scoreInput[i];
+    }
+    let avg = cal / i;
+    return avg;
+};
+
+//Winner function will compare two teams if they win and will use a global var called min that is the min score to win or be set as draw
+function winnerFunc (teamA, teamB){
+    let winner = "No winner"
+    if (teamA > teamB){
+        if (teamA > minScore){
+            return winner = "Team A wins";
+        };
+    };
+
+    if (teamB > teamA){
+        if (teamB > minScore){
+            return winner = "Team B wins";
+        };
+    };
+
+    if (teamA === teamB && teamA > minScore && teamB > minScore) {
+        return winner = "Draw!";
+    };
+    return winner;
+};
+
+//announcements is a function that will tell the user who won and will display detail inforamtion about it base on the outcome of the winnerFunc.
+function announcements (winner) {
+    let announcements;
+    let winningTeam = "The match is a Draw!";
+    if(winner === "Team A wins"){
+        winningTeam = `Winner is ${team1}!`;
+    };
+    
+    if(winner === "Team B wins"){
+        winningTeam = `Winner is ${team2}!`;
+    };
+    announcements = `We have a conclusion to the match! The ${winningTeam}`;
+    return announcements;   
+};
+
+let dolphinsScore = avgScore(scoreBoard.dolphins);
+let koalasScore = avgScore(scoreBoard.koalas);
+let winner = winnerFunc(dolphinsScore, koalasScore);
+let boradcastWinner = announcements(winner);
+
+// console.log(dolphinsScore)
+// console.log(koalasScore)
+// console.log(winner)
+console.log(boradcastWinner)
