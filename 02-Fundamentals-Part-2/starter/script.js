@@ -62,12 +62,12 @@ const calcAverage = (inputScore) => {
 //This function is able to compare two inputs and see which one is double the value of the other. If true, a winner won.
 const checkWinner = (team1, team2) => {
     let winner = "Draw"
-    team1 > team2 * 2 ? winner = `Winner is ${scoreBoard.team1.name}` : 1;
-    team2 > team1 * 2 ? winner = `Winner is ${scoreBoard.team2.name}` : 1;
+    if (team1 > team2 * 2) winner = `Winner is ${scoreBoard.team1.name}`;
+    if (team2 > team1 * 2) winner = `Winner is ${scoreBoard.team2.name}`;
     console.log(`The match is over. ${winner}. ${scoreBoard.team1.name} (${team1}) vs. ${scoreBoard.team2.name} (${team2})`)
 }
 
 //Avg score of the teams. Change score[x] for a different set of scores and to run the winner.
-let avgDolhins = calcAverage(scoreBoard.team1.score2)
-let avgKoalas = calcAverage(scoreBoard.team2.score2)
+let avgDolhins = calcAverage(scoreBoard.team1.score1)
+let avgKoalas = calcAverage(scoreBoard.team2.score1)
 checkWinner(avgDolhins,avgKoalas);
