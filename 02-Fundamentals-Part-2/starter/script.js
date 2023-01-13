@@ -16,6 +16,7 @@ below
 3. Create an array 'tips' containing the tip value for each bill, calculated from
 the function you created before
 4. Bonus: Create an array 'total' containing the total values, so the bill + tip
+
 Test data: 125, 555 and 44
 
 Hint: Remember that an array needs a value in each position, and that value can
@@ -24,4 +25,17 @@ values (so don't store the tip values in separate variables first, but right in 
 array) 😉
 */
 
+// These arrays will be using and storing data from our calcTip function.
+const bills = [125, 555, 44];
+const tips = [];
+const total = [];
 
+//This function will calulate tips and totals, and push them to an array.
+const calTip = inputArray => {
+    const tipCal = inputArray >= 50 && inputArray <= 300 ? inputArray * .15 : inputArray * .20;
+    tips.push(tipCal)
+    const totalCal = inputArray + tipCal;
+    total.push(totalCal)
+}
+calTip(bills[2])
+console.log(total)
