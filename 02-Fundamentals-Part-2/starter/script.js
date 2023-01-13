@@ -67,7 +67,7 @@ const checkWinner = (team1, team2) => {
     console.log(`The match is over. ${winner}. ${scoreBoard.team1.name} (${team1}) vs. ${scoreBoard.team2.name} (${team2})`)
 }
 
-//Avg score of the teams. Change score[x] for a different set of scores.
+//Avg score of the teams. Change score[x] for a different set of scores and to run the winner.
 let avgDolhins = calcAverage(scoreBoard.team1.score2)
 let avgKoalas = calcAverage(scoreBoard.team2.score2)
 checkWinner(avgDolhins,avgKoalas);
